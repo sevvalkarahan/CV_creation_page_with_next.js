@@ -62,11 +62,11 @@ const CreateCV = () => {
     const element = document.getElementById("cv");
     html2pdf()
       .set({
-        margin: [5, 0, 10, 0],
+        margin: [15, 0, 20, 0],
         filename: "cv.pdf",
         image: { type: "jpeg", quality: 0.98 },
         html2canvas: {
-          scale: 2,
+          scale: 3,
           useCORS: true,
           scrollY: 0,
         },
@@ -486,8 +486,8 @@ const CreateCV = () => {
       {/* CV PREVIEW */}
       <div className="w-full lg:w-1/2 relative flex justify-center">
         <div className="lg:sticky lg:top-6">
-          <div id="cv" className="p-8" style={{ width: "210mm", minHeight: "297mm", padding: "15mm", backgroundColor: 'white', fontFamily: 'Times New Roman', fontSize: '9pt' }}>
-            <div className="flex w-full h-32 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
+          <div id="cv" style={{ width: "200mm", minHeight: "287mm", padding: "0mm 5mm 0mm 15mm", backgroundColor: 'white', fontFamily: 'Times New Roman', fontSize: '9pt' }}>
+            <div className="flex w-full mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
 
               <div>
                 {photo && (
