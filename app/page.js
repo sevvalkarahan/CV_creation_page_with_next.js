@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
+
 const CreateCV = () => {
   const [photo, setPhoto] = useState(null);
   const [eduDate, setEduDate] = useState("");

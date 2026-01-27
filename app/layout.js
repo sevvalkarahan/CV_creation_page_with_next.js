@@ -2,8 +2,8 @@ import "./globals.css";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body cz-shortcut-listen="true">
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
         {children}
       </body>
     </html>
