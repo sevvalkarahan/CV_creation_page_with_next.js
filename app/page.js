@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
-
+import { useEffect, useState } from "react";
 
 const CreateCV = () => {
+  const [mounted, setMounted] = useState(false);
   const [photo, setPhoto] = useState(null);
   const [eduDate, setEduDate] = useState("");
   const [eduEndDate, setEduEndDate] = useState("");
@@ -134,6 +134,12 @@ const CreateCV = () => {
       }
     ]);
   }
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
 
 
