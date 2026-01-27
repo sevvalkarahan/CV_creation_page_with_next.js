@@ -62,10 +62,7 @@ const CreateCV = () => {
     const element = document.getElementById("cv");
     html2pdf()
       .set({
-        margin: [5, 5, 5, 5],
-        // pagebreak: {
-        //     mode: ["css", "avoid-all"],
-        // },
+        margin: [5, 0, 10, 0],
         filename: "cv.pdf",
         image: { type: "jpeg", quality: 0.98 },
         html2canvas: {
@@ -78,6 +75,9 @@ const CreateCV = () => {
           format: "a4",
           orientation: "portrait",
         },
+        pagebreak: {
+          mode: ["css", "legacy"],
+        }
       })
       .from(element)
       .save();
@@ -137,10 +137,11 @@ const CreateCV = () => {
 
 
   return (
-    <div className="flex flex-row gap-6 justify-center">
+
+    <div className="w-full flex flex-col lg:flex-row gap-8 justify-center items-start lg:justify-evenly">
 
       {/* FORM */}
-      <div className="w-1/2 bg-white p-8 rounded-2xl shadow-lg space-y-6">
+      <div className="w-full lg:w-1/2 bg-white p-8 rounded-2xl shadow-lg space-y-6">
         <h2 className="text-2xl font-semibold text-gray-800 border-b pb-3">CV Bilgileri</h2>
 
 
@@ -483,9 +484,9 @@ const CreateCV = () => {
       </div>
 
       {/* CV PREVIEW */}
-      <div className="w-1/2 relative">
-        <div className="sticky top-6">
-          <div id="cv" className="p-8 shadow-lg" style={{ width: "200mm", minHeight: "287mm", backgroundColor: 'white', fontFamily: 'Times New Roman', fontSize: '9pt' }}>
+      <div className="w-full lg:w-1/2 relative flex justify-center">
+        <div className="lg:sticky lg:top-6">
+          <div id="cv" className="p-8" style={{ width: "210mm", minHeight: "297mm", padding: "15mm", backgroundColor: 'white', fontFamily: 'Times New Roman', fontSize: '9pt' }}>
             <div className="flex w-full h-32 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
 
               <div>
@@ -494,7 +495,6 @@ const CreateCV = () => {
                     src={photo}
                     alt="profile"
                     className="w-28 h-32 object-cover mr-10"
-                    style={{ backgroundColor: 'white', border: '1px solid #334155' }}
                   />
                 )}
               </div>
@@ -505,7 +505,7 @@ const CreateCV = () => {
             </div>
 
             <div>
-              <h1 className="font-bold text-lg my-2" style={{ color: '#303846' }}>Kişisel Bilgiler</h1>
+              <h1 className="font-bold text-lg my-2" style={{ color: '#303846' }}>Personal Information</h1>
               <hr style={{ color: '#90a1b9' }} />
               <div>
                 <div>
@@ -556,14 +556,14 @@ const CreateCV = () => {
             </div>
 
             {cvData.about && (
-              <section className="mb-4" style={{ pageBreakInside: "avoid" }}>
+              <section className="mb-4">
                 <h2 className="font-bold text-sm my-2" style={{ color: '#303846' }}>Summary</h2>
                 <hr style={{ color: '#90a1b9' }} />
                 <p>{cvData.about}</p>
               </section>
             )}
             {cvData.education && (
-              <section className="mb-4" style={{ pageBreakInside: "avoid" }}>
+              <section className="mb-4">
                 <h2 className="font-bold my-2">Education</h2>
                 <hr style={{ color: '#90a1b9' }} />
                 <div className="flex">
@@ -578,7 +578,7 @@ const CreateCV = () => {
               </section>
             )}
             {experiences.some(exp => exp.company) && (
-              <section className="mb-4" style={{ pageBreakInside: "avoid" }}>
+              <section className="mb-4">
                 <h2 className="font-bold text-sm my-2">Experience</h2>
                 <hr style={{ color: '#90a1b9' }} />
 
@@ -603,7 +603,7 @@ const CreateCV = () => {
             )}
 
             {certificates.some(cert => cert.name) && (
-              <section className="mb-4" style={{ pageBreakInside: "avoid" }}>
+              <section className="mb-4">
                 <h2 className="font-bold text-sm my-2">Certificates</h2>
                 <hr style={{ color: '#90a1b9' }} />
 
@@ -627,7 +627,7 @@ const CreateCV = () => {
               </section>
             )}
             {skills.some(skill => skill.name) && (
-              <section className="mb-4" style={{ pageBreakInside: "avoid" }}>
+              <section className="mb-4">
                 <h2 className="font-bold text-sm my-2">Skills</h2>
                 <hr style={{ color: '#90a1b9' }} />
 
@@ -643,7 +643,7 @@ const CreateCV = () => {
               </section>
             )}
             {languages.some(lang => lang.name) && (
-              <section className="mb-4" style={{ pageBreakInside: "avoid" }}>
+              <section className="mb-4">
                 <h2 className="font-bold text-sm my-2">Languages</h2>
                 <hr style={{ color: '#90a1b9' }} />
 
@@ -662,7 +662,7 @@ const CreateCV = () => {
 
 
             {onRequest || referances.some(ref => ref.name) ? (
-              <section className="mb-4" style={{ pageBreakInside: "avoid" }}>
+              <section className="mb-4">
                 <h2 className="font-bold text-sm my-2">References</h2>
                 <hr style={{ color: '#90a1b9' }} />
 
@@ -690,6 +690,7 @@ const CreateCV = () => {
 
 
     </div >
+
   );
 };
 
