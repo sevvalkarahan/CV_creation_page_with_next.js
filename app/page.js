@@ -497,7 +497,7 @@ const CreateCV = () => {
       <div className="w-full lg:w-1/2 relative flex justify-center">
         <div className="lg:sticky lg:top-6">
           <div id="cv" style={{ width: "200mm", minHeight: "287mm", padding: "0mm 5mm 0mm 15mm", backgroundColor: 'white', fontFamily: 'Times New Roman', fontSize: '9pt' }}>
-            <div className="flex w-full mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
+            <div className="flex w-full h-32 mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
 
               <div>
                 {photo && (
