@@ -58,9 +58,12 @@ const CreateCV = () => {
   });
 
   const downloadPDF = async () => {
+    if (typeof window === "undefined") return;
+
     const html2pdf = (await import("html2pdf.js")).default;
 
     const element = document.getElementById("cv");
+
     html2pdf()
       .set({
         margin: [15, 0, 20, 0],
