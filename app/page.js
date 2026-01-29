@@ -148,7 +148,7 @@ const CreateCV = () => {
 
   return (
 
-    <div className="w-full flex flex-col lg:flex-row gap-8 justify-center items-start lg:justify-evenly">
+    <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-8 px-4">
 
       {/* FORM */}
       <div className="w-full lg:w-1/2 bg-white p-8 rounded-2xl shadow-lg space-y-6">
@@ -494,10 +494,18 @@ const CreateCV = () => {
       </div>
 
       {/* CV PREVIEW */}
-      <div className="w-full lg:w-1/2 relative flex justify-center">
-        <div className="lg:sticky lg:top-6">
-          <div id="cv" style={{ width: "200mm", minHeight: "287mm", padding: "0mm 5mm 0mm 15mm", backgroundColor: 'white', fontFamily: 'Times New Roman', fontSize: '9pt' }}>
-            <div className="flex w-full h-32 mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
+      <div className="w-full lg:w-1/2 flex justify-center">
+        <div className="sticky top-0 lg:top-6">
+          <div id="cv"
+            className="bg-white w-full max-w-[210mm] shadow-lg"
+            style={{
+              minHeight: "297mm",
+              padding: "0mm 5mm 0mm 15mm",
+              fontFamily: "Times New Roman",
+              fontSize: "9pt"
+            }}
+          >
+            <div className="flex flex-col sm:flex-row w-full h-auto sm:h-32 mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
 
               <div>
                 {photo && (
