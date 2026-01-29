@@ -148,7 +148,7 @@ const CreateCV = () => {
 
   return (
 
-    <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-8 px-4">
+    <div className="mx-auto w-full flex flex-col lg:flex-row gap-8 px-4">
 
       {/* FORM */}
       <div className="w-full lg:w-1/2 bg-white p-8 rounded-2xl shadow-lg space-y-6">
@@ -495,83 +495,95 @@ const CreateCV = () => {
 
       {/* CV PREVIEW */}
       <div className="w-full lg:w-1/2 flex justify-center">
-        <div className="sticky top-0 lg:top-6">
+        <div className="sticky top-0 lg:top-6 w-full">
           <div id="cv"
-            className="bg-white w-full max-w-[210mm] shadow-lg"
+            className="bg-white w-full max-w-[210mm] lg:w-[210mm] shadow-lg"
             style={{
               minHeight: "297mm",
-              padding: "0mm 5mm 0mm 15mm",
+              padding: "0mm 5mm 0mm 5mm",
               fontFamily: "Times New Roman",
               fontSize: "9pt"
             }}
           >
-            <div className="flex w-full h-32 mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
+            {
+              (photo || cvData.name || cvData.title) && (
+                <div className="flex w-full h-32 mx-0 mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
 
-              <div>
-                {photo && (
-                  <img
-                    src={photo}
-                    alt="profile"
-                    className="w-28 h-32 object-cover mr-10"
-                  />
-                )}
-              </div>
-              <div className="flex flex-col items-center justify-center ml-5">
-                <h1 className="text-3xl font-bold">{cvData.name}</h1>
-                <p className="mb-4 italic">{cvData.title}</p>
-              </div>
-            </div>
+                  <div>
+                    {photo && (
+                      <img
+                        src={photo}
+                        alt="profile"
+                        className="w-28 h-32 object-cover mr-10"
+                      />
+                    )}
+                  </div>
+                  <div className="flex flex-col items-center justify-center ml-5">
+                    <h1 className="text-3xl font-bold">{cvData.name}</h1>
+                    <p className="mb-4 italic">{cvData.title}</p>
 
-            <div>
-              <h1 className="font-bold text-lg my-2" style={{ color: '#303846' }}>Personal Information</h1>
-              <hr style={{ color: '#90a1b9' }} />
-              <div>
-                <div>
-                  {cvData.email && (
-                    <div>
-                      <p className="inline-block w-44" style={{ color: '#303846' }}>E-posta adresi</p>
-                      <span>{cvData.email}</span>
-                    </div>
-                  )}
-                  {cvData.phone && (
-                    <div>
-                      <p className="inline-block w-44 " style={{ color: '#303846' }}>Telefon numarası</p>
-                      <span>{cvData.phone}</span>
-                    </div>
-                  )}
-                  {cvData.adress && (
-                    <div>
-                      <p className="inline-block w-44 " style={{ color: '#303846' }}>Adres</p>
-                      <span>{cvData.adress}</span>
-                    </div>
-                  )}
-                  {cvData.linkedin && (
-                    <div>
-                      <p className="inline-block w-44" style={{ color: '#303846' }}>LinkedIn</p>
-                      <span>{cvData.linkedin}</span>
-                    </div>
-                  )}
-                  {cvData.github && (
-                    <div>
-                      <p className="inline-block w-44 " style={{ color: '#303846' }}>GitHub</p>
-                      <span>{cvData.github}</span>
-                    </div>
-                  )}
-                  {cvData.webLink && (
-                    <div>
-                      <p className="inline-block w-44" style={{ color: '#303846' }}>Web Link</p>
-                      <span>{cvData.webLink}</span>
-                    </div>
-                  )}
+                  </div>
                 </div>
+              )
+            }
 
-              </div>
+            {
+              (cvData.email || cvData.phone || cvData.adress || cvData.linkedin || cvData.github || cvData.webLink) && (
+                <div>
+                  <h1 className="font-bold text-lg my-2" style={{ color: '#303846' }}>Personal Information</h1>
+                  <hr style={{ color: '#90a1b9' }} />
+                  <div>
+                    <div>
+                      {cvData.email && (
+                        <div>
+                          <p className="inline-block w-44" style={{ color: '#303846' }}>E-posta adresi</p>
+                          <span>{cvData.email}</span>
+                        </div>
+                      )}
+                      {cvData.phone && (
+                        <div>
+                          <p className="inline-block w-44 " style={{ color: '#303846' }}>Telefon numarası</p>
+                          <span>{cvData.phone}</span>
+                        </div>
+                      )}
+                      {cvData.adress && (
+                        <div>
+                          <p className="inline-block w-44 " style={{ color: '#303846' }}>Adres</p>
+                          <span>{cvData.adress}</span>
+                        </div>
+                      )}
+                      {cvData.linkedin && (
+                        <div>
+                          <p className="inline-block w-44" style={{ color: '#303846' }}>LinkedIn</p>
+                          <span>{cvData.linkedin}</span>
+                        </div>
+                      )}
+                      {cvData.github && (
+                        <div>
+                          <p className="inline-block w-44 " style={{ color: '#303846' }}>GitHub</p>
+                          <span>{cvData.github}</span>
+                        </div>
+                      )}
+                      {cvData.webLink && (
+                        <div>
+                          <p className="inline-block w-44" style={{ color: '#303846' }}>Web Link</p>
+                          <span>{cvData.webLink}</span>
+                        </div>
+                      )}
+                    </div>
+
+                  </div>
 
 
 
 
 
-            </div>
+                </div>
+              )
+            }
+
+
+
 
             {cvData.about && (
               <section className="mb-4">
