@@ -505,7 +505,7 @@ const CreateCV = () => {
               fontSize: "9pt"
             }}
           >
-            <div className="flex flex-col sm:flex-row w-full h-auto sm:h-32 mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
+            <div className="flex w-full h-32 mt-0 mb-2" style={{ backgroundColor: '#334155', color: 'white' }}>
 
               <div>
                 {photo && (
